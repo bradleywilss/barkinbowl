@@ -1,0 +1,198 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --forest: #1F4A3A; 
+  --cream: #F7F3EC; 
+  --brown: #A86A33;
+  --sage: #A9B88D; 
+  --leaf: #6D8E3D; 
+  --honey: #D6A04A;
+  --text: #1a2e25; 
+  --muted: #6b7c6a; 
+  --wa-green: #25D366;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  background: rgba(247,243,236,0.95); backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(31,74,58,0.12);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw; height: 80px;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-img { height: 70px; width: auto; display: block; }
+.nav-logo-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--forest); }
+.nav-back { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--forest); font-size: 0.88rem; font-weight: 500; transition: color .2s; }
+.nav-back:hover { color: var(--brown); }
+.nav-cta {
+  background: var(--wa-green); color: #fff; border: none; border-radius: 2rem;
+  padding: 0.5rem 1.2rem; font-size: 0.85rem; font-weight: 600;
+  display: flex; align-items: center; gap: 7px; text-decoration: none;
+}
+
+/* ─── HERO ─── */
+.guide-hero {
+  background: linear-gradient(135deg, var(--forest) 0%, #2d6651 60%, #1a3d2e 100%);
+  padding: 130px 5vw 70px; text-align: center;
+}
+.guide-hero-label { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--honey); margin-bottom: 0.8rem; }
+.guide-hero-label svg { width: 14px; height: 14px; }
+.guide-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 900; color: #fff; margin-bottom: 1rem; }
+.guide-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.7); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+/* ─── JUMP NAV ─── */
+.jump-nav {
+  background: #fff; border-bottom: 1px solid rgba(31,74,58,0.1);
+  padding: 0 5vw; display: flex; gap: 0; overflow-x: auto; position: sticky; top: 80px; z-index: 50; justify-content: center;
+}
+.jump-nav a {
+  padding: 1rem 1.2rem; font-size: 0.82rem; font-weight: 600; color: var(--muted);
+  text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.jump-nav a:hover { color: var(--forest); border-color: var(--forest); }
+
+/* ─── CONTENT COMMON ─── */
+.guide-content { max-width: 780px; margin: 0 auto; padding: 60px 5vw 80px; }
+.guide-section { margin-bottom: 3.5rem; }
+.guide-section-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 50%; background: var(--forest); color: #fff;
+  font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+.guide-section h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--forest); margin-bottom: 0.4rem; }
+.guide-section .section-intro { font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.4rem; }
+.divider { border: none; border-top: 1px solid rgba(31,74,58,0.1); margin-bottom: 3.5rem; }
+
+/* ─── STORAGE CARDS ─── */
+.storage-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.storage-card {
+  background: #fff; border-radius: 1.2rem; padding: 1.4rem;
+  border: 1px solid rgba(31,74,58,0.1);
+}
+.storage-card .s-icon { color: var(--forest); margin-bottom: 0.6rem; }
+.storage-card .s-icon svg { width: 30px; height: 30px; }
+.storage-card h4 { font-weight: 700; color: var(--forest); margin-bottom: 0.4rem; font-size: 0.95rem; }
+.storage-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+/* ─── SERVING STEPS ─── */
+.serving-steps { display: flex; flex-direction: column; gap: 1rem; }
+.serving-step { display: flex; gap: 1rem; align-items: flex-start; background: #fff; border-radius: 1rem; padding: 1.2rem; border: 1px solid rgba(31,74,58,0.08); }
+.serving-step .s-num { min-width: 32px; height: 32px; border-radius: 50%; background: var(--leaf); color: #fff; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.serving-step .s-num svg { width: 16px; height: 16px; }
+.serving-step p { font-size: 0.9rem; color: var(--text); line-height: 1.6; }
+
+/* ─── PORTION TABLE ─── */
+.portion-table { width: 100%; border-collapse: collapse; border-radius: 1rem; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.portion-table thead { background: var(--forest); color: #fff; }
+.portion-table thead th { padding: 0.9rem 1rem; text-align: left; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+.portion-table tbody tr { background: #fff; border-bottom: 1px solid rgba(31,74,58,0.07); }
+.portion-table tbody tr:nth-child(even) { background: var(--cream); }
+.portion-table tbody td { padding: 0.85rem 1rem; font-size: 0.88rem; color: var(--text); }
+.portion-table tbody td:first-child { font-weight: 600; color: var(--forest); }
+.portion-example {
+  margin-top: 1rem; background: rgba(109,142,61,0.08); border-left: 3px solid var(--leaf);
+  border-radius: 0 0.8rem 0.8rem 0; padding: 1rem 1.2rem;
+  font-size: 0.88rem; color: var(--text); line-height: 1.6;
+}
+.portion-example strong { color: var(--forest); }
+.adjust-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8rem; margin-top: 1rem; }
+.adjust-card { background: #fff; border-radius: 1rem; padding: 1rem; border: 1px solid rgba(31,74,58,0.1); text-align: center; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+.adjust-card strong { display: block; color: var(--forest); font-size: 0.9rem; margin-bottom: 0.2rem; }
+
+/* ─── TRANSITION TABLE ─── */
+.transition-table { width: 100%; border-collapse: collapse; border-radius: 1rem; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.transition-table thead { background: var(--brown); color: #fff; }
+.transition-table thead th { padding: 0.9rem 1rem; text-align: left; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+.transition-table tbody tr { background: #fff; border-bottom: 1px solid rgba(31,74,58,0.07); }
+.transition-table tbody tr:nth-child(even) { background: var(--cream); }
+.transition-table tbody td { padding: 0.85rem 1rem; font-size: 0.88rem; color: var(--text); }
+.transition-table tbody td:first-child { font-weight: 600; color: var(--brown); }
+
+/* ─── CALLOUTS ─── */
+.tip-box {
+  background: rgba(31,74,58,0.05); border: 1px solid rgba(31,74,58,0.12);
+  border-radius: 1rem; padding: 1.2rem 1.4rem; margin-top: 1rem;
+  font-size: 0.88rem; color: var(--muted); line-height: 1.7;
+}
+.tip-box strong { color: var(--forest); }
+
+.warning-box {
+  background: rgba(214,160,74,0.1); border: 1px solid rgba(214,160,74,0.35);
+  border-radius: 1rem; padding: 1.2rem 1.4rem; margin-top: 1rem;
+  font-size: 0.88rem; color: var(--text); line-height: 1.7;
+}
+.warning-box strong { color: var(--brown); }
+.warning-box .warning-icon { width: 15px; height: 15px; vertical-align: -2px; margin-right: 2px; }
+
+/* ─── FAQ ─── */
+.faq-list { display: flex; flex-direction: column; gap: 0.8rem; }
+.faq-item { background: #fff; border-radius: 1rem; border: 1px solid rgba(31,74,58,0.1); overflow: hidden; }
+.faq-q {
+  padding: 1.1rem 1.4rem; font-weight: 600; font-size: 0.92rem; color: var(--forest);
+  cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; user-select: none;
+}
+.faq-q:hover { background: rgba(31,74,58,0.03); }
+.faq-arrow { flex-shrink: 0; font-size: 0.75rem; transition: transform .2s; color: var(--muted); }
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+.faq-a { display: none; padding: 0 1.4rem 1.1rem; font-size: 0.88rem; color: var(--muted); line-height: 1.7; border-top: 1px solid rgba(31,74,58,0.07); padding-top: 1rem; }
+.faq-item.open .faq-a { display: block; }
+
+/* ─── CTA BOTTOM ─── */
+.guide-cta {
+  background: var(--forest); border-radius: 1.5rem; padding: 2.5rem;
+  text-align: center; margin-top: 3rem;
+}
+.guide-cta h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #fff; margin-bottom: 0.5rem; }
+.guide-cta p { color: rgba(255,255,255,0.65); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.guide-cta a {
+  background: var(--wa-green); color: #fff; border-radius: 2rem;
+  padding: 0.85rem 1.8rem; font-size: 0.92rem; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  transition: opacity .2s;
+}
+.guide-cta a:hover { opacity: 0.88; }
+
+/* ─── FOOTER ─── */
+footer { background: #121e18; color: rgba(255,255,255,0.5); padding: 2rem 5vw; text-align: center; font-size: 0.82rem; }
+footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 0.5rem; }
+footer a:hover { color: var(--honey); }
+.footer-copyright { margin-top: 0.5rem; }
+
+/* Instagram Typography Link styling */
+.ig-handle {
+  color: #bc1888; font-weight: 600; text-decoration: none;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  transition: opacity .2s;
+}
+.ig-handle:hover { opacity: 0.75; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  nav { padding: 0 4vw; height: 60px; }
+  .nav-logo { display: none; }
+  .nav-back { font-size: 0.82rem; }
+  .nav-cta { padding: 0.45rem 1rem; font-size: 0.82rem; gap: 5px; }
+  .nav-cta svg { width: 14px; height: 14px; }
+
+  .guide-hero { padding: 95px 5vw 50px; }
+  .guide-hero h1 { font-size: 2.2rem; }
+  .guide-hero p { font-size: 0.92rem; }
+
+  .jump-nav { top: 60px; }
+  .jump-nav a { padding: 0.75rem 0.85rem; font-size: 0.75rem; }
+
+  .guide-content { padding: 40px 5vw 60px; }
+  .storage-cards { grid-template-columns: 1fr; }
+  .adjust-grid { grid-template-columns: 1fr; }
+  .portion-table, .transition-table { font-size: 0.8rem; }
+  .portion-table th, .transition-table th,
+  .portion-table td, .transition-table td { padding: 0.65rem 0.6rem; }
+}
