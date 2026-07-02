@@ -4,11 +4,15 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Feeding Guide – barkinbowl.id</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <meta name="description" content="How to store, portion, and serve Bark in Bowl fresh dog food — including a portion calculator by weight & life stage, a kibble transition plan, and FAQ."/>
+  <meta name="theme-color" content="#1F4A3A"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="guide.css">
-  <link rel="icon" href="../src/logo.png" type="image/png">
+  <link rel="icon" href="../src/favicon-96.png" type="image/png">
 </head>
 <body>
+
+<div class="progress-bar" id="progress-bar"></div>
 
 <nav>
   <a href="../" class="nav-back">← Back to barkinbowl.id</a>
@@ -33,7 +37,7 @@
   <a href="#serving">Serving</a>
   <a href="#portions">Portions</a>
   <a href="#transition">Transition</a>
-  <a href="#notes">Important Notes</a>
+  <a href="#notes">Notes</a>
   <a href="#faq">FAQ</a>
 </div>
 
@@ -44,6 +48,10 @@
     <div class="guide-section-num">1</div>
     <h2>Storage</h2>
     <p class="section-intro">Bark in Bowl is made fresh, cooked without preservatives. Proper storage is essential to keep it safe and nutritious.</p>
+    <figure class="guide-photo">
+      <img src="../src/pack.jpg" alt="Bark in Bowl Salmon and Wild Boar sealed 500g packs" loading="lazy">
+      <figcaption>Your order arrives in sealed 500g packs — keep them frozen until you're ready to use them.</figcaption>
+    </figure>
     <div class="storage-cards">
       <div class="storage-card">
         <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="22"/><line x1="4" y1="7" x2="20" y2="17"/><line x1="20" y1="7" x2="4" y2="17"/><path d="M12 2l-2.3 2.3M12 2l2.3 2.3"/><path d="M12 22l-2.3-2.3M12 22l2.3-2.3"/></svg></div>
@@ -119,6 +127,39 @@
     <div class="portion-example">
       <strong>Example:</strong> A 10kg adult dog needs 10,000g × 2–3% = <strong>200–300g per day</strong>, split into 2 meals (100–150g per serving).
     </div>
+
+    <div class="calc-card">
+      <div class="calc-header">
+        <span class="calc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="19"/><line x1="5" y1="7" x2="19" y2="7"/><path d="M5 7l-2.6 6a2.6 2.6 0 0 0 5.2 0L5 7z"/><path d="M19 7l-2.6 6a2.6 2.6 0 0 0 5.2 0L19 7z"/><line x1="8" y1="21" x2="16" y2="21"/></svg></span>
+        <div>
+          <h3>Quick Portion Calculator</h3>
+          <p>Enter your dog's weight and life stage — we'll do the math.</p>
+        </div>
+      </div>
+      <div class="calc-fields">
+        <label class="calc-field">
+          <span>Dog's weight (kg)</span>
+          <input type="number" id="calc-weight" inputmode="decimal" min="0.5" max="90" step="0.5" placeholder="e.g. 10">
+        </label>
+        <label class="calc-field">
+          <span>Life stage</span>
+          <select id="calc-stage">
+            <option value="0.08,0.10,4" >Puppy (2–4 months)</option>
+            <option value="0.06,0.08,3">Puppy (4–6 months)</option>
+            <option value="0.04,0.06,3">Puppy (6–12 months)</option>
+            <option value="0.02,0.03,2" selected>Adult (1–7 years)</option>
+            <option value="0.015,0.025,2">Senior (7+ years)</option>
+          </select>
+        </label>
+      </div>
+      <div class="calc-result" id="calc-result" hidden>
+        <div class="calc-stat"><span class="calc-num" id="calc-daily">—</span><span class="calc-label">per day</span></div>
+        <div class="calc-stat"><span class="calc-num" id="calc-meal">—</span><span class="calc-label" id="calc-meal-label">per meal</span></div>
+        <div class="calc-stat"><span class="calc-num" id="calc-packs">—</span><span class="calc-label">500g packs / week</span></div>
+      </div>
+      <p class="calc-note" hidden id="calc-note">A starting point, not a rule — adjust ±10–20% based on your dog's activity and body condition.</p>
+    </div>
+
     <div class="adjust-grid">
       <div class="adjust-card"><strong>Active / Working Dog</strong>Add +10–20% to daily portion</div>
       <div class="adjust-card"><strong>Less Active / Overweight</strong>Reduce by 10–20%</div>
@@ -260,11 +301,73 @@
   <p class="footer-copyright">© 2026 barkinbowl.id · Real food. Happy dog. Healthy life.</p>
 </footer>
 
+<button class="back-to-top" id="back-to-top" title="Back to top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5.5 11.5L12 5l6.5 6.5"/></svg>
+</button>
+
 <script>
   function toggleFaq(el) {
     const item = el.parentElement;
     item.classList.toggle('open');
   }
+
+  /* Portion calculator */
+  const calcWeight = document.getElementById('calc-weight');
+  const calcStage = document.getElementById('calc-stage');
+  function fmt(g) { return g >= 1000 ? (g/1000).toFixed(1).replace(/\.0$/,'') + 'kg' : Math.round(g) + 'g'; }
+  function updateCalc() {
+    const kg = parseFloat(calcWeight.value);
+    const result = document.getElementById('calc-result');
+    const note = document.getElementById('calc-note');
+    if (!kg || kg <= 0) { result.hidden = true; note.hidden = true; return; }
+    const [minP, maxP, meals] = calcStage.value.split(',').map(Number);
+    const grams = kg * 1000;
+    const dayMin = grams * minP, dayMax = grams * maxP;
+    const dayAvg = (dayMin + dayMax) / 2;
+    document.getElementById('calc-daily').textContent = fmt(dayMin) + '–' + fmt(dayMax);
+    document.getElementById('calc-meal').textContent = fmt(dayMin / meals) + '–' + fmt(dayMax / meals);
+    document.getElementById('calc-meal-label').textContent = 'per meal (' + meals + 'x daily)';
+    document.getElementById('calc-packs').textContent = '~' + Math.max(1, Math.ceil(dayAvg * 7 / 500));
+    result.hidden = false; note.hidden = false;
+  }
+  calcWeight.addEventListener('input', updateCalc);
+  calcStage.addEventListener('change', updateCalc);
+
+  /* Reading progress bar */
+  const progressBar = document.getElementById('progress-bar');
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+    backToTop.classList.toggle('show', window.scrollY > 600);
+  }, { passive: true });
+
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* Scroll-spy: highlight the active section in the jump nav */
+  const jumpLinks = document.querySelectorAll('.jump-nav a');
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        jumpLinks.forEach(a => {
+          const isActive = a.getAttribute('href') === '#' + entry.target.id;
+          a.classList.toggle('active', isActive);
+          if (isActive) a.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  document.querySelectorAll('.guide-section[id]').forEach(s => spy.observe(s));
+
+  /* Scroll-reveal for sections */
+  const sections = document.querySelectorAll('.guide-section, .guide-cta');
+  sections.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+  sections.forEach(el => io.observe(el));
 </script>
 </body>
 </html>

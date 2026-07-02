@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Bark in Bowl — freshly cooked, human-grade dog food in Indonesia. 70% real meat, zero preservatives. Salmon, Wild Boar & Rabbit recipes, ordered via WhatsApp."/>
+  <meta name="theme-color" content="#1F4A3A"/>
+  <meta property="og:title" content="barkinbowl.id – Real Food. Real Love."/>
+  <meta property="og:description" content="Freshly cooked, human-grade dog food. 70% real meat, zero preservatives — from our dogs bowl to yours."/>
+  <meta property="og:image" content="src/cover.jpg"/>
+  <meta property="og:type" content="website"/>
   <title>barkinbowl.id – Real Food. Real Love.</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="index.css">
@@ -52,6 +58,9 @@
       </div>
     </div>
     <div class="hero-visual">
+      <div class="hero-photo-back">
+        <img src="src/cover2.jpg" alt="Two bowls of freshly cooked Bark in Bowl recipes" loading="lazy">
+      </div>
       <div class="hero-photo-card">
         <img src="src/cover.jpg" alt="Bark in Bowl Salmon and Wild Boar packs" class="hero-photo">
         <div class="floating-tag tl"><span class="dot"></span> Human-grade</div>
@@ -127,6 +136,28 @@
   </div>
 </section>
 
+<section id="fresh">
+  <div class="section-header reveal">
+    <div class="section-label">Fresh, For Real</div>
+    <h2 class="section-title">Food you can actually recognise</h2>
+    <p class="section-sub">No pellets, no mystery powder. Flaked salmon, minced boar, and veggies you can see — straight from our kitchen to your dog's bowl.</p>
+  </div>
+  <div class="gallery-strip">
+    <figure class="gallery-item reveal">
+      <img src="src/salmon1.jpg" alt="Close-up of the Salmon Recipe in a bowl" loading="lazy">
+      <figcaption><span class="dot"></span> Salmon Recipe, up close</figcaption>
+    </figure>
+    <figure class="gallery-item gallery-item-mid reveal">
+      <img src="src/cover2.jpg" alt="Wild Boar and Salmon recipes served side by side" loading="lazy">
+      <figcaption><span class="dot"></span> Cooked fresh, served simple</figcaption>
+    </figure>
+    <figure class="gallery-item reveal">
+      <img src="src/boar1.jpg" alt="Close-up of the Wild Boar Recipe in a bowl" loading="lazy">
+      <figcaption><span class="dot"></span> Wild Boar Recipe, up close</figcaption>
+    </figure>
+  </div>
+</section>
+
 <section id="why">
   <div class="section-header">
     <div class="section-label">Why barkinbowl.id</div>
@@ -147,26 +178,34 @@
     <h2 class="section-title">Simple as 1–2–3</h2>
     <p class="section-sub">No complicated apps. Just a quick WhatsApp message and your dog eats well.</p>
   </div>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div>
-        <div class="step-title">Pick a recipe</div>
-        <p class="step-desc">Browse our menu above and tap any available recipe card to see full ingredients, benefits, and details.</p>
+  <div class="order-inner">
+    <div class="steps steps-column reveal">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Pick a recipe</div>
+          <p class="step-desc">Browse our menu above and tap any available recipe card to see full ingredients, benefits, and details.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">Message us on WhatsApp</div>
+          <p class="step-desc">Tap "Order Now" from inside any recipe or the button below. Tell us what you need — we'll confirm availability and pricing right away.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Receive &amp; serve fresh</div>
+          <p class="step-desc">We'll arrange delivery or pickup. Keep it refrigerated at 0–4°C and serve your dog a meal made with real love.</p>
+        </div>
       </div>
     </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div>
-        <div class="step-title">Message us on WhatsApp</div>
-        <p class="step-desc">Tap "Order Now" from inside any recipe or the button below. Tell us what you need — we'll confirm availability and pricing right away.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div>
-        <div class="step-title">Receive &amp; serve fresh</div>
-        <p class="step-desc">We'll arrange delivery or pickup. Keep it refrigerated at 0–4°C and serve your dog a meal made with real love.</p>
+    <div class="order-visual reveal">
+      <div class="order-photo-card">
+        <img src="src/pack.jpg" alt="Bark in Bowl Salmon and Wild Boar 500g packs" loading="lazy">
+        <div class="floating-tag br"><span class="dot"></span> Sealed 500g fresh packs</div>
       </div>
     </div>
   </div>
@@ -370,6 +409,30 @@
   }
 
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  /* Nav shadow once the page starts scrolling */
+  const navEl = document.querySelector('nav');
+  const onScroll = () => navEl.classList.toggle('scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* Scroll-reveal: sections and cards fade up as they enter the viewport */
+  document.querySelectorAll('.section-header, .product-card, .why-card, .teaser-card, .trust-item')
+    .forEach(el => el.classList.add('reveal'));
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in-view'));
+  }
 </script>
 
 </body>

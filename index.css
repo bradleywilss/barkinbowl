@@ -316,6 +316,81 @@ footer .footer-contact a.wa-link { color: var(--wa-green); text-decoration: none
 .d-inline-flex { display: inline-flex !important; }
 .m-bottom-lg { margin-bottom: 1.8rem !important; }
 
+/* ─── ANCHOR OFFSET FOR FIXED NAV ─── */
+section[id] { scroll-margin-top: 90px; }
+
+/* ─── NAV SCROLL STATE ─── */
+nav { transition: box-shadow .3s; }
+nav.scrolled { box-shadow: 0 6px 24px rgba(31,74,58,0.1); }
+
+/* ─── HERO LAYERED PHOTOS ─── */
+.hero-photo-back {
+  position: absolute; width: 240px; height: 300px;
+  right: -8px; top: 46%; transform: translateY(-50%) rotate(5deg);
+  background: var(--cream); border-radius: 1.4rem; padding: 10px;
+  box-shadow: 0 20px 44px rgba(0,0,0,0.3);
+  transition: transform .35s;
+}
+.hero-photo-back img { width: 100%; height: 100%; object-fit: cover; border-radius: 1rem; display: block; }
+.hero-visual:hover .hero-photo-back { transform: translateY(-50%) rotate(8deg) translateX(10px); }
+
+/* ─── FRESH GALLERY ─── */
+#fresh { background: var(--cream); }
+.gallery-strip {
+  display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 1.5rem;
+  max-width: 1100px; margin: 0 auto; align-items: center;
+}
+.gallery-item {
+  position: relative; border-radius: 1.5rem; overflow: hidden;
+  box-shadow: 0 12px 36px rgba(31,74,58,0.14);
+  transition: transform .3s, box-shadow .3s;
+}
+.gallery-item:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 22px 52px rgba(31,74,58,0.22); }
+.gallery-item img { width: 100%; height: 300px; object-fit: cover; display: block; transition: transform .6s ease; }
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item-mid img { height: 360px; }
+.gallery-item figcaption {
+  position: absolute; left: 14px; bottom: 14px;
+  background: rgba(247,243,236,0.94); backdrop-filter: blur(6px);
+  border-radius: 2rem; padding: 0.5rem 0.95rem;
+  font-size: 0.78rem; font-weight: 600; color: var(--forest);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.gallery-item figcaption .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--leaf); flex-shrink: 0; }
+
+/* ─── ORDER LAYOUT ─── */
+.order-inner {
+  max-width: 1000px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.15fr 1fr; gap: 4rem; align-items: center;
+}
+.steps-column { flex-direction: column; gap: 1.8rem; max-width: none; }
+.steps-column .step { flex: none; }
+.order-visual { display: flex; justify-content: center; }
+.order-photo-card {
+  position: relative; width: 100%; max-width: 400px;
+  background: #fff; border-radius: 1.8rem; padding: 12px;
+  box-shadow: 0 18px 48px rgba(31,74,58,0.16);
+  transform: rotate(2deg); transition: transform .3s;
+}
+.order-photo-card:hover { transform: rotate(0deg); }
+.order-photo-card img { width: 100%; height: 360px; object-fit: cover; border-radius: 1.3rem; display: block; }
+.order-photo-card .floating-tag.br { bottom: 26px; right: -14px; }
+
+/* ─── SCROLL REVEAL ─── */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in-view { opacity: 1; transform: none; }
+.products-grid .reveal:nth-child(2), .why-grid .reveal:nth-child(2) { transition-delay: .08s; }
+.products-grid .reveal:nth-child(3), .why-grid .reveal:nth-child(3) { transition-delay: .16s; }
+.why-grid .reveal:nth-child(4) { transition-delay: .24s; }
+.gallery-strip .reveal:nth-child(2) { transition-delay: .1s; }
+.gallery-strip .reveal:nth-child(3) { transition-delay: .2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .gallery-item, .gallery-item img, .hero-photo-card, .hero-photo-back, .order-photo-card { transition: none; }
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   /* Nav */
@@ -348,4 +423,16 @@ footer .footer-contact a.wa-link { color: var(--wa-green); text-decoration: none
 
   /* Products grid */
   .products-grid { grid-template-columns: 1fr; }
+
+  /* Fresh gallery */
+  .gallery-strip { grid-template-columns: 1fr; gap: 1.2rem; }
+  .gallery-item img, .gallery-item-mid img { height: 240px; }
+
+  /* Order */
+  .order-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .order-photo-card { max-width: 340px; margin: 0 auto; }
+  .order-photo-card img { height: 300px; }
+  .order-photo-card .floating-tag.br { right: 8px; }
+
+  section[id] { scroll-margin-top: 70px; }
 }
