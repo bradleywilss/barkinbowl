@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Bark in Bowl — freshly cooked, human-grade dog food in Indonesia. 70% real meat, zero preservatives. Salmon, Wild Boar & Rabbit recipes, ordered via WhatsApp."/>
+  <meta name="description" content="Bark in Bowl — freshly cooked, human-grade dog food in Indonesia. 70% real meat, zero preservatives. Salmon, Wild Boar, Rabbit & Chicken recipes, ordered via WhatsApp."/>
   <meta name="theme-color" content="#1F4A3A"/>
   <meta property="og:title" content="barkinbowl.id – Real Food. Real Love."/>
   <meta property="og:description" content="Freshly cooked, human-grade dog food. 70% real meat, zero preservatives — from our dogs bowl to yours."/>
@@ -36,7 +36,10 @@
 <section class="hero" id="home">
   <div class="hero-inner">
     <div>
-      <div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c0-9 6-16 16-16-1 10-7 16-16 16z"/><path d="M4 20c4-3 9-8 12-14"/></svg> Real Food · Real Love</div>
+      <div class="hero-badge-row">
+        <div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c0-9 6-16 16-16-1 10-7 16-16 16z"/><path d="M4 20c4-3 9-8 12-14"/></svg> Real Food · Real Love</div>
+        <div class="hero-badge hero-badge-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg> Based in Jakarta, Indonesia</div>
+      </div>
       <h1 class="hero-title-prefix">Bark in Bowl</h1>
       <h2 class="hero-main-title">Food made for <em>your dog,</em> from ours.</h2>
       <p class="hero-sub">Human-grade ingredients, cooked fresh. No preservatives, no fillers — just honest nutrition your dog will wag for.</p>
@@ -83,12 +86,21 @@
     <h2 class="section-title">What's on the table today</h2>
     <p class="section-sub">Every batch is freshly prepared — 70% premium protein, 30% superfoods &amp; special supplements. Tap a recipe to learn more.</p>
   </div>
-  <div class="products-grid">
+  <div class="products-carousel">
+    <button class="carousel-arrow carousel-arrow-left" onclick="scrollCarousel(-1)" aria-label="Scroll left">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="carousel-arrow carousel-arrow-right" onclick="scrollCarousel(1)" aria-label="Scroll right">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="carousel-fade carousel-fade-left"></div>
+    <div class="carousel-fade carousel-fade-right"></div>
+    <div class="products-track" id="products-track">
 
-    <div class="product-card clickable" onclick="openModal('salmon')">
+    <div class="product-card card-accent-salmon clickable" onclick="openModal('salmon')">
       <div class="product-card-img-placeholder"><img src="src/salmon.jpg" alt="Salmon Recipe" class="product-photo"></div>
       <div class="product-card-body">
-        <span class="product-tag">Available Now</span>
+        <div class="product-tags"><span class="product-tag">Available Now</span><span class="product-tag product-tag-bestseller">Best Seller</span></div>
         <div class="product-name">Salmon Recipe</div>
         <div class="product-variant">Atlantic Salmon &amp; Veggies</div>
         <p class="product-desc">Premium Atlantic salmon paired with pumpkin, purple sweet potato, berries, fresh greens, and our special wellness blend.</p>
@@ -101,10 +113,10 @@
       </div>
     </div>
 
-    <div class="product-card clickable" onclick="openModal('boar')">
+    <div class="product-card card-accent-boar clickable" onclick="openModal('boar')">
       <div class="product-card-img-placeholder"><img src="src/boar.jpg" alt="Wild Boar Recipe" class="product-photo"></div>
       <div class="product-card-body">
-        <span class="product-tag">Available Now</span>
+        <div class="product-tags"><span class="product-tag">Available Now</span></div>
         <div class="product-name">Wild Boar Recipe</div>
         <div class="product-variant">Boar, Liver &amp; Greens</div>
         <p class="product-desc">Rich wild boar and pork liver crafted with kale, red cabbage, mixed berries, and our unique special blend.</p>
@@ -117,10 +129,26 @@
       </div>
     </div>
 
-    <div class="product-card clickable" onclick="openModal('rabbit')">
+    <div class="product-card card-accent-chicken clickable" onclick="openModal('chicken')">
+      <div class="product-card-img-placeholder card-chicken-bg"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><path d="M18 54a32 17 0 0 0 64 0" stroke-width="4" stroke-linecap="round"/><line x1="18" y1="54" x2="82" y2="54" stroke-width="4" stroke-linecap="round"/><g fill="currentColor" stroke="none"><ellipse cx="50" cy="37" rx="13" ry="10.5"/><ellipse cx="31" cy="23" rx="5.6" ry="7.6"/><ellipse cx="43" cy="14.5" rx="5.2" ry="7"/><ellipse cx="57" cy="14.5" rx="5.2" ry="7"/><ellipse cx="69" cy="23" rx="5.6" ry="7.6"/></g></svg></div>
+      <div class="product-card-body">
+        <div class="product-tags"><span class="product-tag">Available Now</span><span class="product-tag product-tag-new">New</span></div>
+        <div class="product-name">Chicken Recipe</div>
+        <div class="product-variant">Chicken, Veggies &amp; Superfoods</div>
+        <p class="product-desc">Lean chicken breast and thigh with chicken liver, heart, and gizzard, paired with pumpkin, sweet potato, carrot, broccoli, pak choy, and shiitake mushroom.</p>
+        <div class="product-macros">
+          <div class="macro"><span class="macro-num">70%</span><span class="macro-label">Protein</span></div>
+          <div class="macro"><span class="macro-num">30%</span><span class="macro-label">Superfoods</span></div>
+          <div class="macro"><span class="macro-num">500g</span><span class="macro-label">Per pack</span></div>
+        </div>
+        <div class="product-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="6" opacity="0.7"/><circle cx="12" cy="12" r="9.5" opacity="0.4"/></svg> Tap to see full details</div>
+      </div>
+    </div>
+
+    <div class="product-card card-accent-rabbit clickable" onclick="openModal('rabbit')">
       <div class="product-card-img-placeholder card-rabbit-bg"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><path d="M18 54a32 17 0 0 0 64 0" stroke-width="4" stroke-linecap="round"/><line x1="18" y1="54" x2="82" y2="54" stroke-width="4" stroke-linecap="round"/><g fill="currentColor" stroke="none"><ellipse cx="50" cy="37" rx="13" ry="10.5"/><ellipse cx="31" cy="23" rx="5.6" ry="7.6"/><ellipse cx="43" cy="14.5" rx="5.2" ry="7"/><ellipse cx="57" cy="14.5" rx="5.2" ry="7"/><ellipse cx="69" cy="23" rx="5.6" ry="7.6"/></g></svg></div>
       <div class="product-card-body">
-        <span class="product-tag">Available Now</span><span class="product-tag product-tag-new">New</span>
+        <div class="product-tags"><span class="product-tag">Available Now</span><span class="product-tag product-tag-new">New</span></div>
         <div class="product-name">Rabbit Recipe</div>
         <div class="product-variant">Rabbit Meat, Celery &amp; Green Beans</div>
         <p class="product-desc">Hypoallergenic, ultra-lean rabbit protein with celery, zucchini, and green beans. Ideal for dogs with sensitive skin or tummies.</p>
@@ -133,6 +161,11 @@
       </div>
     </div>
 
+    </div>
+    <div class="carousel-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      Swipe to see more recipes
+    </div>
   </div>
 </section>
 
@@ -295,7 +328,7 @@
     <button class="modal-close" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>
     <div class="modal-img" id="modal-img"></div>
     <div class="modal-body">
-      <span class="modal-tag">Available Now</span><span class="modal-tag modal-tag-new" id="modal-tag-new">New</span>
+      <span class="modal-tag">Available Now</span><span class="modal-tag modal-tag-new" id="modal-tag-new">New</span><span class="modal-tag modal-tag-bestseller" id="modal-tag-bestseller">Best Seller</span>
       <div class="modal-name" id="modal-name"></div>
       <div class="modal-variant" id="modal-variant"></div>
       <p class="modal-desc" id="modal-desc"></p>
@@ -321,6 +354,7 @@
   const PAW_MARK = '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><path d="M18 54a32 17 0 0 0 64 0" stroke-width="4" stroke-linecap="round"/><line x1="18" y1="54" x2="82" y2="54" stroke-width="4" stroke-linecap="round"/><g fill="currentColor" stroke="none"><ellipse cx="50" cy="37" rx="13" ry="10.5"/><ellipse cx="31" cy="23" rx="5.6" ry="7.6"/><ellipse cx="43" cy="14.5" rx="5.2" ry="7"/><ellipse cx="57" cy="14.5" rx="5.2" ry="7"/><ellipse cx="69" cy="23" rx="5.6" ry="7.6"/></g></svg>';
   const products = {
     salmon: {
+      isBestSeller: true,
       photo: 'src/salmon-modal.jpg',
       bg: 'linear-gradient(135deg, #e8f0e0, #d0e4c0)',
       name: 'Salmon Recipe',
@@ -370,6 +404,23 @@
         'Easy to digest — light on the stomach for dogs with delicate digestive systems',
         'Enriched with BIB Signature Functional Stack for complete canine nutrition'
       ]
+    },
+    chicken: {
+      isNew: true,
+      bg: 'linear-gradient(135deg, #fff2d6, #f6dfa0)',
+      name: 'Chicken Recipe',
+      variant: 'Chicken, Veggies & Superfoods',
+      desc: 'A well-rounded recipe built on lean chicken breast and thigh, enriched with chicken liver, heart, and gizzard for dense natural nutrition. Paired with pumpkin, sweet potato, carrot, broccoli, pak choy, and shiitake mushroom for a balanced, everyday meal your dog will love.',
+      waMsg: "Hi! I want to order the Chicken Recipe",
+      ingredients: ['Chicken Breast', 'Chicken Thigh', 'Chicken Liver', 'Chicken Heart', 'Chicken Gizzard', 'Pumpkin', 'Sweet Potato', 'Carrot', 'Broccoli', 'Pak Choy', 'Shiitake Mushroom', 'Mixed Berries', 'BIB Signature Functional Stack'],
+      benefits: [
+        '70% premium chicken breast and thigh for lean, highly digestible protein',
+        'Chicken liver, heart, and gizzard deliver dense natural vitamins, iron, and taurine',
+        'Pumpkin, sweet potato, and carrot provide gentle, fiber-rich digestive support',
+        'Broccoli and pak choy add antioxidants and phytonutrients for daily wellness',
+        'Shiitake mushroom and mixed berries support a strong immune system',
+        'Enriched with BIB Signature Functional Stack for complete canine nutrition'
+      ]
     }
   };
 
@@ -384,6 +435,7 @@
       modalImg.innerHTML = PAW_MARK;
     }
     document.getElementById('modal-tag-new').style.display = p.isNew ? 'inline-block' : 'none';
+    document.getElementById('modal-tag-bestseller').style.display = p.isBestSeller ? 'inline-block' : 'none';
     document.getElementById('modal-name').textContent = p.name;
     document.getElementById('modal-variant').textContent = p.variant;
     document.getElementById('modal-desc').textContent = p.desc;
@@ -409,6 +461,25 @@
   }
 
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  /* Recipe carousel: arrow scroll + fade/arrow visibility based on scroll position */
+  function scrollCarousel(dir) {
+    const track = document.getElementById('products-track');
+    track.scrollBy({ left: dir * (track.firstElementChild.offsetWidth + 24), behavior: 'smooth' });
+  }
+  (function initCarouselEdges() {
+    const track = document.getElementById('products-track');
+    const carousel = track.closest('.products-carousel');
+    const update = () => {
+      const atStart = track.scrollLeft < 10;
+      const atEnd = track.scrollLeft > track.scrollWidth - track.clientWidth - 10;
+      carousel.classList.toggle('at-start', atStart);
+      carousel.classList.toggle('at-end', atEnd);
+    };
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
 
   /* Nav shadow once the page starts scrolling */
   const navEl = document.querySelector('nav');
