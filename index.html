@@ -163,6 +163,22 @@
       </div>
     </div>
 
+    <div class="product-card card-accent-beef clickable" onclick="openModal('beef')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('beef');}" role="button" tabindex="0" aria-label="View Beef Recipe details">
+      <div class="product-card-img-placeholder card-beef-bg"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><path d="M18 54a32 17 0 0 0 64 0" stroke-width="4" stroke-linecap="round"/><line x1="18" y1="54" x2="82" y2="54" stroke-width="4" stroke-linecap="round"/><g fill="currentColor" stroke="none"><ellipse cx="50" cy="37" rx="13" ry="10.5"/><ellipse cx="31" cy="23" rx="5.6" ry="7.6"/><ellipse cx="43" cy="14.5" rx="5.2" ry="7"/><ellipse cx="57" cy="14.5" rx="5.2" ry="7"/><ellipse cx="69" cy="23" rx="5.6" ry="7.6"/></g></svg></div>
+      <div class="product-card-body">
+        <div class="product-tags"><span class="product-tag">Available Now</span><span class="product-tag product-tag-new">New</span></div>
+        <div class="product-name">Beef Recipe</div>
+        <div class="product-variant">Grass Fed Beef, Organs &amp; Superfoods</div>
+        <p class="product-desc">Grass fed beef with beef heart and lungs, paired with pumpkin, sweet potato, carrot, zucchini, broccoli, shiitake mushroom, and mixed berries.</p>
+        <div class="product-macros">
+          <div class="macro"><span class="macro-num">70%</span><span class="macro-label">Protein</span></div>
+          <div class="macro"><span class="macro-num">30%</span><span class="macro-label">Superfoods</span></div>
+          <div class="macro"><span class="macro-num">500g</span><span class="macro-label">Per pack</span></div>
+        </div>
+        <div class="product-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="6" opacity="0.7"/><circle cx="12" cy="12" r="9.5" opacity="0.4"/></svg> Tap to see full details</div>
+      </div>
+    </div>
+
     </div>
     <div class="carousel-hint">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
@@ -421,6 +437,23 @@
         'Pumpkin, sweet potato, and carrot provide gentle, fiber-rich digestive support',
         'Broccoli and pak choy add antioxidants and phytonutrients for daily wellness',
         'Shiitake mushroom and mixed berries support a strong immune system',
+        'Enriched with BIB Signature Functional Stack for complete canine nutrition'
+      ]
+    },
+    beef: {
+      isNew: true,
+      bg: 'linear-gradient(135deg, #f6dcd4, #dba695)',
+      name: 'Beef Recipe',
+      variant: 'Grass Fed Beef, Organs & Superfoods',
+      desc: 'A hearty, iron-rich recipe built on 100% grass fed beef, enriched with beef heart and lungs for dense, natural nutrition. Balanced with pumpkin, sweet potato, carrot, zucchini, broccoli, shiitake mushroom, and mixed berries for a robust everyday meal that fuels active dogs.',
+      waMsg: "Hi! I want to order the Beef Recipe",
+      ingredients: ['Grass Fed Beef', 'Grass Fed Beef Heart', 'Grass Fed Beef Lungs', 'Pumpkin', 'Sweet Potato', 'Carrot', 'Zucchini', 'Broccoli', 'Shiitake Mushroom', 'Mixed Berries', 'BIB Signature Functional Stack'],
+      benefits: [
+        '70% grass fed beef for rich, highly digestible muscle-building protein',
+        'Beef heart is naturally loaded with taurine and CoQ10 to support heart health',
+        'Beef lungs add lean, low-fat protein and dense natural minerals',
+        'Pumpkin, sweet potato, and carrot deliver gentle, fiber-rich digestive support',
+        'Zucchini, broccoli, shiitake mushroom, and mixed berries boost antioxidants and immunity',
         'Enriched with BIB Signature Functional Stack for complete canine nutrition'
       ]
     }

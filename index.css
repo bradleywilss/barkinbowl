@@ -200,6 +200,16 @@ section { padding: 110px 5vw; }
 }
 .carousel-hint svg { width: 15px; height: 15px; }
 
+/* Desktop & tablet: show every recipe at once (3 + 2 centered) instead of scrolling */
+@media (min-width: 769px) {
+  .products-track {
+    flex-wrap: wrap; justify-content: center; overflow-x: visible;
+    scroll-snap-type: none; row-gap: 1.75rem;
+  }
+  .products-track .product-card { flex: 1 1 300px; max-width: 366px; scroll-snap-align: none; }
+  .carousel-arrow, .carousel-fade, .carousel-hint { display: none; }
+}
+
 .carousel-fade {
   position: absolute; top: 0; bottom: 1.5rem; width: 64px; pointer-events: none; z-index: 2;
   transition: opacity .25s ease;
@@ -249,10 +259,12 @@ section { padding: 110px 5vw; }
 .product-card.clickable:hover .product-photo { transform: scale(1.07); }
 .card-rabbit-bg { background: linear-gradient(135deg, #fde8cc, #f5c98a); }
 .card-chicken-bg { background: linear-gradient(135deg, #fff2d6, #f6dfa0); }
+.card-beef-bg { background: linear-gradient(135deg, #f6dcd4, #dba695); }
 .card-accent-salmon { --accent: #e8927c; }
 .card-accent-boar { --accent: #8a5a3b; }
 .card-accent-rabbit { --accent: #f0a840; }
 .card-accent-chicken { --accent: #e0b23a; }
+.card-accent-beef { --accent: #a4442e; }
 .product-card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
 .product-tags { display: flex; flex-wrap: wrap; gap: 6px; align-self: flex-start; margin-bottom: 0.8rem; }
 .product-tag {
