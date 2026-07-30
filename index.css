@@ -200,16 +200,6 @@ section { padding: 110px 5vw; }
 }
 .carousel-hint svg { width: 15px; height: 15px; }
 
-/* Desktop & tablet: show every recipe at once (3 + 2 centered) instead of scrolling */
-@media (min-width: 769px) {
-  .products-track {
-    flex-wrap: wrap; justify-content: center; overflow-x: visible;
-    scroll-snap-type: none; row-gap: 1.75rem;
-  }
-  .products-track .product-card { flex: 1 1 300px; max-width: 366px; scroll-snap-align: none; }
-  .carousel-arrow, .carousel-fade, .carousel-hint { display: none; }
-}
-
 .carousel-fade {
   position: absolute; top: 0; bottom: 1.5rem; width: 64px; pointer-events: none; z-index: 2;
   transition: opacity .25s ease;
@@ -604,4 +594,14 @@ nav.scrolled { box-shadow: 0 6px 24px rgba(31,74,58,0.1); }
   .order-photo-card .floating-tag.br { right: 8px; }
 
   section[id] { scroll-margin-top: 70px; }
+}
+/* Desktop & tablet: show every recipe at once (3 + 2 centered) instead of scrolling.
+   Must stay last — .carousel-arrow's base rule sets display:flex further up. */
+@media (min-width: 769px) {
+  .products-track {
+    flex-wrap: wrap; justify-content: center; overflow-x: visible;
+    scroll-snap-type: none; row-gap: 1.75rem;
+  }
+  .products-track .product-card { flex: 1 1 300px; max-width: 366px; scroll-snap-align: none; }
+  .carousel-arrow, .carousel-fade, .carousel-hint { display: none; }
 }
