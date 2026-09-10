@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#1F4A3A"/>
   <meta property="og:title" content="barkinbowl.id – Real Food. Real Love."/>
   <meta property="og:description" content="Freshly cooked, human-grade dog food. 70% real meat, zero preservatives — from our dogs bowl to yours."/>
-  <meta property="og:image" content="src/cover.jpg"/>
+  <meta property="og:image" content="src/cover.jpg?v=20260910"/>
   <meta property="og:type" content="website"/>
   <title>barkinbowl.id – Real Food. Real Love.</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -20,8 +20,8 @@
 
 <nav>
   <a href="#" class="nav-logo">
-    <img src="src/logo.png" alt="Bark in Bowl" class="nav-logo-img">
-    <div class="nav-logo-text">barkinbowl.id<span>From our dogs bowl to yours</span></div>
+    <img src="src/logo-new.png?v=20260910" alt="Bark in Bowl" class="nav-logo-img">
+    <div class="nav-logo-text"><span>From our dogs bowl to yours</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="#menu">Menu</a></li>
@@ -64,10 +64,10 @@
     </div>
     <div class="hero-visual">
       <div class="hero-photo-back">
-        <img src="src/cover2.jpg" alt="Two bowls of freshly cooked Bark in Bowl recipes" loading="lazy">
+        <img src="src/cover2.jpg?v=20260910" alt="The full Bark in Bowl range laid out with fresh vegetables" loading="lazy">
       </div>
       <div class="hero-photo-card">
-        <img src="src/cover.jpg" alt="Bark in Bowl Salmon and Wild Boar packs" class="hero-photo">
+        <img src="src/cover.jpg?v=20260910" alt="A dog with the Bark in Bowl Chicken, Salmon, Wild Boar, Beef and Rabbit packs and fresh vegetables" class="hero-photo">
         <div class="floating-tag tl"><span class="dot"></span> Human-grade</div>
         <div class="floating-tag br"><span class="dot"></span> Keep refrigerated 0–4°C</div>
       </div>
@@ -99,8 +99,24 @@
     <div class="carousel-fade carousel-fade-right"></div>
     <div class="products-track" id="products-track">
 
-    <div class="product-card card-accent-salmon clickable" onclick="openModal('salmon')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('salmon');}" role="button" tabindex="0" aria-label="View Salmon Recipe details">
-      <div class="product-card-img-placeholder"><img src="src/salmon.jpg" alt="Salmon Recipe" class="product-photo"></div>
+    <div class="product-card card-accent-rabbit clickable" onclick="openModal('rabbit')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('rabbit');}" role="button" tabindex="0" aria-label="View Rabbit Recipe details">
+      <div class="product-card-img-placeholder card-rabbit-bg"><img src="src/rabbit.jpg?v=20260910" alt="Rabbit Recipe" class="product-photo" loading="lazy"></div>
+      <div class="product-card-body">
+        <div class="product-tags"><span class="product-tag">Available Now</span><span class="product-tag product-tag-bestseller">Best Seller</span></div>
+        <div class="product-name">Rabbit Recipe</div>
+        <div class="product-variant">Rabbit Meat, Celery &amp; Green Beans</div>
+        <p class="product-desc">Hypoallergenic, ultra-lean rabbit protein with celery, zucchini, and green beans. Ideal for dogs with sensitive skin or tummies.</p>
+        <div class="product-macros">
+          <div class="macro"><span class="macro-num">70%</span><span class="macro-label">Protein</span></div>
+          <div class="macro"><span class="macro-num">30%</span><span class="macro-label">Superfoods</span></div>
+          <div class="macro"><span class="macro-num">500g</span><span class="macro-label">Per pack</span></div>
+        </div>
+        <div class="product-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="6" opacity="0.7"/><circle cx="12" cy="12" r="9.5" opacity="0.4"/></svg> Tap to see full details</div>
+      </div>
+    </div>
+
+<div class="product-card card-accent-salmon clickable" onclick="openModal('salmon')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('salmon');}" role="button" tabindex="0" aria-label="View Salmon Recipe details">
+      <div class="product-card-img-placeholder"><img src="src/salmon.jpg?v=20260910" alt="Salmon Recipe" class="product-photo" loading="lazy"></div>
       <div class="product-card-body">
         <div class="product-tags"><span class="product-tag">Available Now</span><span class="product-tag product-tag-bestseller">Best Seller</span></div>
         <div class="product-name">Salmon Recipe</div>
@@ -115,8 +131,8 @@
       </div>
     </div>
 
-    <div class="product-card card-accent-boar clickable" onclick="openModal('boar')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('boar');}" role="button" tabindex="0" aria-label="View Wild Boar Recipe details">
-      <div class="product-card-img-placeholder"><img src="src/boar.jpg" alt="Wild Boar Recipe" class="product-photo"></div>
+<div class="product-card card-accent-boar clickable" onclick="openModal('boar')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('boar');}" role="button" tabindex="0" aria-label="View Wild Boar Recipe details">
+      <div class="product-card-img-placeholder"><img src="src/boar.jpg?v=20260910" alt="Wild Boar Recipe" class="product-photo" loading="lazy"></div>
       <div class="product-card-body">
         <div class="product-tags"><span class="product-tag">Available Now</span></div>
         <div class="product-name">Wild Boar Recipe</div>
@@ -131,10 +147,10 @@
       </div>
     </div>
 
-    <div class="product-card card-accent-chicken clickable" onclick="openModal('chicken')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('chicken');}" role="button" tabindex="0" aria-label="View Chicken Recipe details">
-      <div class="product-card-img-placeholder card-chicken-bg"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><path d="M18 54a32 17 0 0 0 64 0" stroke-width="4" stroke-linecap="round"/><line x1="18" y1="54" x2="82" y2="54" stroke-width="4" stroke-linecap="round"/><g fill="currentColor" stroke="none"><ellipse cx="50" cy="37" rx="13" ry="10.5"/><ellipse cx="31" cy="23" rx="5.6" ry="7.6"/><ellipse cx="43" cy="14.5" rx="5.2" ry="7"/><ellipse cx="57" cy="14.5" rx="5.2" ry="7"/><ellipse cx="69" cy="23" rx="5.6" ry="7.6"/></g></svg></div>
+<div class="product-card card-accent-chicken clickable" onclick="openModal('chicken')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('chicken');}" role="button" tabindex="0" aria-label="View Chicken Recipe details">
+      <div class="product-card-img-placeholder card-chicken-bg"><img src="src/chicken.jpg?v=20260910" alt="Chicken Recipe" class="product-photo" loading="lazy"></div>
       <div class="product-card-body">
-        <div class="product-tags"><span class="product-tag">Available Now</span><span class="product-tag product-tag-new">New</span></div>
+        <div class="product-tags"><span class="product-tag">Available Now</span></div>
         <div class="product-name">Chicken Recipe</div>
         <div class="product-variant">Chicken, Veggies &amp; Superfoods</div>
         <p class="product-desc">Lean chicken breast and thigh with chicken liver, heart, and gizzard, paired with pumpkin, sweet potato, carrot, broccoli, pak choy, and shiitake mushroom.</p>
@@ -147,26 +163,10 @@
       </div>
     </div>
 
-    <div class="product-card card-accent-rabbit clickable" onclick="openModal('rabbit')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('rabbit');}" role="button" tabindex="0" aria-label="View Rabbit Recipe details">
-      <div class="product-card-img-placeholder card-rabbit-bg"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><path d="M18 54a32 17 0 0 0 64 0" stroke-width="4" stroke-linecap="round"/><line x1="18" y1="54" x2="82" y2="54" stroke-width="4" stroke-linecap="round"/><g fill="currentColor" stroke="none"><ellipse cx="50" cy="37" rx="13" ry="10.5"/><ellipse cx="31" cy="23" rx="5.6" ry="7.6"/><ellipse cx="43" cy="14.5" rx="5.2" ry="7"/><ellipse cx="57" cy="14.5" rx="5.2" ry="7"/><ellipse cx="69" cy="23" rx="5.6" ry="7.6"/></g></svg></div>
+<div class="product-card card-accent-beef clickable" onclick="openModal('beef')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('beef');}" role="button" tabindex="0" aria-label="View Beef Recipe details">
+      <div class="product-card-img-placeholder card-beef-bg"><img src="src/beef.jpg?v=20260910" alt="Beef Recipe" class="product-photo" loading="lazy"></div>
       <div class="product-card-body">
-        <div class="product-tags"><span class="product-tag">Available Now</span><span class="product-tag product-tag-new">New</span></div>
-        <div class="product-name">Rabbit Recipe</div>
-        <div class="product-variant">Rabbit Meat, Celery &amp; Green Beans</div>
-        <p class="product-desc">Hypoallergenic, ultra-lean rabbit protein with celery, zucchini, and green beans. Ideal for dogs with sensitive skin or tummies.</p>
-        <div class="product-macros">
-          <div class="macro"><span class="macro-num">70%</span><span class="macro-label">Protein</span></div>
-          <div class="macro"><span class="macro-num">30%</span><span class="macro-label">Superfoods</span></div>
-          <div class="macro"><span class="macro-num">500g</span><span class="macro-label">Per pack</span></div>
-        </div>
-        <div class="product-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="6" opacity="0.7"/><circle cx="12" cy="12" r="9.5" opacity="0.4"/></svg> Tap to see full details</div>
-      </div>
-    </div>
-
-    <div class="product-card card-accent-beef clickable" onclick="openModal('beef')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('beef');}" role="button" tabindex="0" aria-label="View Beef Recipe details">
-      <div class="product-card-img-placeholder card-beef-bg"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><path d="M18 54a32 17 0 0 0 64 0" stroke-width="4" stroke-linecap="round"/><line x1="18" y1="54" x2="82" y2="54" stroke-width="4" stroke-linecap="round"/><g fill="currentColor" stroke="none"><ellipse cx="50" cy="37" rx="13" ry="10.5"/><ellipse cx="31" cy="23" rx="5.6" ry="7.6"/><ellipse cx="43" cy="14.5" rx="5.2" ry="7"/><ellipse cx="57" cy="14.5" rx="5.2" ry="7"/><ellipse cx="69" cy="23" rx="5.6" ry="7.6"/></g></svg></div>
-      <div class="product-card-body">
-        <div class="product-tags"><span class="product-tag">Available Now</span><span class="product-tag product-tag-new">New</span></div>
+        <div class="product-tags"><span class="product-tag">Available Now</span></div>
         <div class="product-name">Beef Recipe</div>
         <div class="product-variant">Grass Fed Beef, Organs &amp; Superfoods</div>
         <p class="product-desc">Grass fed beef with beef heart and lungs, paired with pumpkin, sweet potato, carrot, zucchini, broccoli, shiitake mushroom, and mixed berries.</p>
@@ -187,6 +187,8 @@
   </div>
 </section>
 
+<div class="section-divider" aria-hidden="true"><span class="divider-rule"></span><span class="divider-mark"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><path d="M18 54a32 17 0 0 0 64 0" stroke-width="6" stroke-linecap="round"/><line x1="18" y1="54" x2="82" y2="54" stroke-width="6" stroke-linecap="round"/><g fill="currentColor" stroke="none"><ellipse cx="50" cy="37" rx="13" ry="10.5"/><ellipse cx="31" cy="23" rx="5.6" ry="7.6"/><ellipse cx="43" cy="14.5" rx="5.2" ry="7"/><ellipse cx="57" cy="14.5" rx="5.2" ry="7"/><ellipse cx="69" cy="23" rx="5.6" ry="7.6"/></g></svg></span><span class="divider-rule"></span></div>
+
 <section id="fresh">
   <div class="section-header reveal">
     <div class="section-label">Fresh, For Real</div>
@@ -195,15 +197,15 @@
   </div>
   <div class="gallery-strip">
     <figure class="gallery-item reveal">
-      <img src="src/salmon1.jpg" alt="Close-up of the Salmon Recipe in a bowl" loading="lazy">
+      <img src="src/salmon1.jpg?v=20260910" alt="Close-up of the Salmon Recipe in a bowl" loading="lazy">
       <figcaption><span class="dot"></span> Salmon Recipe, up close</figcaption>
     </figure>
     <figure class="gallery-item gallery-item-mid reveal">
-      <img src="src/cover2.jpg" alt="Wild Boar and Salmon recipes served side by side" loading="lazy">
-      <figcaption><span class="dot"></span> Cooked fresh, served simple</figcaption>
+      <img src="src/fresh-mid.jpg?v=20260910" alt="Fresh salmon, chicken, beef, rabbit and vegetables before cooking" loading="lazy">
+      <figcaption><span class="dot"></span> Ingredients you can name</figcaption>
     </figure>
     <figure class="gallery-item reveal">
-      <img src="src/boar1.jpg" alt="Close-up of the Wild Boar Recipe in a bowl" loading="lazy">
+      <img src="src/boar1.jpg?v=20260910" alt="Close-up of the Wild Boar Recipe in a bowl" loading="lazy">
       <figcaption><span class="dot"></span> Wild Boar Recipe, up close</figcaption>
     </figure>
   </div>
@@ -255,7 +257,7 @@
     </div>
     <div class="order-visual reveal">
       <div class="order-photo-card">
-        <img src="src/pack.jpg" alt="Bark in Bowl Salmon and Wild Boar 500g packs" loading="lazy">
+        <img src="src/pack.jpg?v=20260910" alt="The Bark in Bowl range of sealed 500g fresh packs with vegetables" loading="lazy">
         <div class="floating-tag br"><span class="dot"></span> Sealed 500g fresh packs</div>
       </div>
     </div>
@@ -267,6 +269,8 @@
     </a>
   </div>
 </section>
+
+<div class="section-divider" aria-hidden="true"><span class="divider-rule"></span><span class="divider-mark"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><path d="M18 54a32 17 0 0 0 64 0" stroke-width="6" stroke-linecap="round"/><line x1="18" y1="54" x2="82" y2="54" stroke-width="6" stroke-linecap="round"/><g fill="currentColor" stroke="none"><ellipse cx="50" cy="37" rx="13" ry="10.5"/><ellipse cx="31" cy="23" rx="5.6" ry="7.6"/><ellipse cx="43" cy="14.5" rx="5.2" ry="7"/><ellipse cx="57" cy="14.5" rx="5.2" ry="7"/><ellipse cx="69" cy="23" rx="5.6" ry="7.6"/></g></svg></span><span class="divider-rule"></span></div>
 
 <section id="guide-teaser">
   <div class="guide-teaser-inner">
@@ -373,7 +377,7 @@
   const products = {
     salmon: {
       isBestSeller: true,
-      photo: 'src/salmon-modal.jpg',
+      photo: 'src/salmon-modal.jpg?v=20260910',
       bg: 'linear-gradient(135deg, #e8f0e0, #d0e4c0)',
       name: 'Salmon Recipe',
       variant: 'Atlantic Salmon & Veggies',
@@ -390,7 +394,7 @@
       ]
     },
     boar: {
-      photo: 'src/boar-modal.jpg',
+      photo: 'src/boar-modal.jpg?v=20260910',
       bg: 'linear-gradient(135deg, #e0e8d8, #c4d8b0)',
       name: 'Wild Boar Recipe',
       variant: 'Boar, Liver & Greens',
@@ -407,7 +411,8 @@
       ]
     },
     rabbit: {
-      isNew: true,
+      isBestSeller: true,
+      photo: 'src/rabbit-modal.jpg?v=20260910',
       bg: 'linear-gradient(135deg, #fde8cc, #f5c98a)',
       name: 'Rabbit Recipe',
       variant: 'Rabbit Meat, Celery & Green Beans',
@@ -424,7 +429,7 @@
       ]
     },
     chicken: {
-      isNew: true,
+      photo: 'src/chicken-modal.jpg?v=20260910',
       bg: 'linear-gradient(135deg, #fff2d6, #f6dfa0)',
       name: 'Chicken Recipe',
       variant: 'Chicken, Veggies & Superfoods',
@@ -441,7 +446,7 @@
       ]
     },
     beef: {
-      isNew: true,
+      photo: 'src/beef-modal.jpg?v=20260910',
       bg: 'linear-gradient(135deg, #f6dcd4, #dba695)',
       name: 'Beef Recipe',
       variant: 'Grass Fed Beef, Organs & Superfoods',

@@ -24,7 +24,7 @@ nav {
   padding: 0 5vw; height: 80px;
 }
 .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.nav-logo-img { height: 70px; width: auto; display: block; }
+.nav-logo-img { height: 54px; width: auto; display: block; }
 .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--forest); }
 .nav-back { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--forest); font-size: 0.88rem; font-weight: 500; transition: color .2s; }
 .nav-back:hover { color: var(--brown); }
