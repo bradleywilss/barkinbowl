@@ -655,6 +655,46 @@ nav.scrolled { box-shadow: 0 6px 24px rgba(31,74,58,0.1); }
   .order-photo-card img { height: 300px; }
   .order-photo-card .floating-tag.br { right: 8px; }
 
+  /* ─── Section backgrounds ───
+     The bg-*.jpg washes are 1800x1250 landscape. On a portrait phone `cover`
+     crops them to a meaningless centre sliver behind an 80–85% overlay — all of
+     the ~1.3MB download, none of the photo. Mobile gets its own treatment
+     instead: each section keeps the brand colours of its overlay as a soft
+     gradient wash with a fine dot texture, and drops the photo layer.
+     The footer is the exception — it keeps bg-footer.jpg, it reads well there. */
+  #menu, #fresh, #why, #order, #guide-teaser {
+    background-size: auto; background-position: top center; background-repeat: repeat;
+  }
+  #menu {
+    background-image:
+      url("data:image/svg+xml,%3Csvg width='90' height='90' viewBox='0 0 90 90' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231F4A3A' fill-opacity='0.035'%3E%3Ccircle cx='45' cy='45' r='1.5'/%3E%3C/g%3E%3C/svg%3E"),
+      radial-gradient(120% 60% at 82% 0%, rgba(214,160,74,0.14), rgba(214,160,74,0) 62%),
+      linear-gradient(180deg, #fff 0%, #fbf8f2 55%, var(--cream) 100%);
+  }
+  #fresh {
+    background-image:
+      url("data:image/svg+xml,%3Csvg width='90' height='90' viewBox='0 0 90 90' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231F4A3A' fill-opacity='0.035'%3E%3Ccircle cx='45' cy='45' r='1.5'/%3E%3C/g%3E%3C/svg%3E"),
+      radial-gradient(110% 55% at 18% 8%, rgba(169,184,141,0.22), rgba(169,184,141,0) 60%),
+      linear-gradient(180deg, var(--cream) 0%, #f1ece1 52%, var(--cream) 100%);
+  }
+  #why {
+    background-image:
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E"),
+      radial-gradient(100% 45% at 80% 10%, rgba(214,160,74,0.18), rgba(214,160,74,0) 62%),
+      linear-gradient(170deg, var(--forest) 0%, var(--forest-mid) 48%, #1a3d2e 100%);
+  }
+  #order {
+    background-image:
+      url("data:image/svg+xml,%3Csvg width='90' height='90' viewBox='0 0 90 90' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231F4A3A' fill-opacity='0.035'%3E%3Ccircle cx='45' cy='45' r='1.5'/%3E%3C/g%3E%3C/svg%3E"),
+      radial-gradient(110% 55% at 85% 12%, rgba(109,142,61,0.16), rgba(109,142,61,0) 60%),
+      linear-gradient(180deg, var(--cream) 0%, #fdfaf4 50%, var(--cream) 100%);
+  }
+  #guide-teaser {
+    background-image:
+      url("data:image/svg+xml,%3Csvg width='90' height='90' viewBox='0 0 90 90' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231F4A3A' fill-opacity='0.035'%3E%3Ccircle cx='45' cy='45' r='1.5'/%3E%3C/g%3E%3C/svg%3E"),
+      radial-gradient(115% 55% at 15% 5%, rgba(169,184,141,0.2), rgba(169,184,141,0) 60%),
+      linear-gradient(180deg, var(--cream) 0%, #faf7f1 55%, #fff 100%);
+  }
   section[id] { scroll-margin-top: 70px; }
 }
 /* Desktop & tablet: show every recipe at once (3 + 2 centered) instead of scrolling.
