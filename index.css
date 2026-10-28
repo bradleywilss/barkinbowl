@@ -667,6 +667,133 @@ html:not(.js) .recipe-chips,html:not(.js) .recipe-dots,html:not(.js) .recipe-ctr
   .order-photo{align-self:end}
 }
 
+/* ── 6b · Find us in store ── */
+.stores{padding-top:0}
+/* Store picker */
+.store-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.store-tab{display:flex;align-items:center;gap:12px;min-height:64px;padding:10px 14px;border:0;border-radius:var(--r-md);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line),var(--sh-1);
+  font:inherit;color:var(--forest);text-align:left;cursor:pointer;transition:box-shadow var(--dur-1),background-color var(--dur-1),color var(--dur-1)}
+.store-tab:hover{box-shadow:inset 0 0 0 1.5px var(--line-strong),var(--sh-1)}
+.store-tab[aria-selected="true"]{background:var(--forest);color:var(--on-dark);box-shadow:var(--sh-2)}
+.store-tab-num{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--forest);color:var(--on-dark);font:700 .875rem/1 var(--font-body)}
+.store-tab[aria-selected="true"] .store-tab-num{background:var(--honey);color:var(--forest-deep)}
+.store-tab-text{display:grid;gap:3px;min-width:0}
+.store-tab-text strong{font:700 1rem/1.15 var(--font-body)}
+.store-tab-text small{font:600 .75rem/1.25 var(--font-body);color:var(--muted-ink)}
+.store-tab[aria-selected="true"] .store-tab-text small{color:var(--on-dark-2)}
+.store-panel{display:grid;gap:16px}
+.store-panel[hidden]{display:none}
+@media (max-width:479.98px){
+  .store-tab{gap:8px;padding:10px;min-height:60px}
+  .store-tab-num{width:26px;height:26px;font-size:.75rem}
+  .store-tab-text strong{font-size:.875rem}
+  .store-tab-text small{font-size:.6875rem}
+}
+
+/* Street maps: roads drawn from OpenStreetMap; HTML labels on top stay readable at any width */
+.gmap{position:relative;container-type:inline-size;aspect-ratio:1000/749;border-radius:var(--r-md);overflow:hidden;background:#EFE7DA;box-shadow:var(--sh-1),inset 0 0 0 1px var(--line);isolation:isolate}
+.gm-art{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:-1}
+.gm-land{fill:#EFE7DA}
+.gm-park{fill:#DCE3CA}
+.gm-water{fill:#CBDAD0}
+.gm-river{fill:none;stroke:#CBDAD0;stroke-width:6;stroke-linecap:round}
+.gm-case,.gm-road{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.gm-case{stroke:rgba(31,74,58,.14)}
+.gm-road{stroke:var(--surface)}
+.gm-case.gm-sv{stroke-width:5.5} .gm-road.gm-sv{stroke-width:3.5;stroke:#F8F3EA}
+.gm-case.gm-mn{stroke-width:10} .gm-road.gm-mn{stroke-width:7}
+.gm-case.gm-mj{stroke-width:17} .gm-road.gm-mj{stroke-width:13.5}
+.gm-case.gm-mw,.gm-case.gm-mwl{stroke-width:22} .gm-road.gm-mw,.gm-road.gm-mwl{stroke-width:18;stroke:#F1E4CF}
+.gm-case.gm-main{stroke-width:21;stroke:rgba(168,106,51,.45)} .gm-road.gm-main{stroke-width:17;stroke:#F6E3BF}
+.gm-street,.gm-area,.gm-poi,.gm-store,.gm-scale,.gm-credit,.gmap .sm-compass{position:absolute}
+.gm-street{left:var(--x);top:var(--y);transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;
+  font:600 clamp(.5625rem,.45rem + .45vw,.75rem)/1 var(--font-body);color:var(--text-2);letter-spacing:.01em;
+  text-shadow:0 0 3px var(--surface),0 0 3px var(--surface),0 0 6px var(--surface)}
+.gm-street--v{transform:translate(-50%,-50%) rotate(-90deg)}
+.gm-street--main{font-weight:700;color:var(--brown-ink);font-size:clamp(.625rem,.5rem + .5vw,.8125rem)}
+.gm-area{left:var(--x);top:var(--y);transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap;
+  font:700 clamp(.5rem,.42rem + .35vw,.6875rem)/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--muted-ink);opacity:.8;
+  text-shadow:0 0 3px #EFE7DA,0 0 6px #EFE7DA}
+/* Landmarks */
+.gm-poi{left:var(--x);top:var(--y);display:flex;flex-direction:column;align-items:center;gap:3px;transform:translate(-50%,-11px);pointer-events:none}
+.gm-poi--above{flex-direction:column-reverse;transform:translate(-50%,calc(-100% + 11px))}
+.gm-poi-dot{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--brown);color:var(--surface);box-shadow:0 0 0 2px var(--surface),0 2px 6px rgba(31,74,58,.25)}
+.gm-poi-dot svg{width:12px;height:12px}
+.gm-poi-label{padding:3px 7px;border-radius:6px;background:var(--surface);box-shadow:var(--sh-1);white-space:nowrap;font:700 clamp(.5625rem,.48rem + .35vw,.75rem)/1.1 var(--font-body);color:var(--brown-ink)}
+/* The store pin: tip sits on the shop */
+.gm-store{left:var(--x);top:var(--y);display:flex;align-items:flex-start;gap:6px;transform:translate(-20px,-100%);color:var(--forest);text-decoration:none;z-index:2;-webkit-tap-highlight-color:transparent}
+.gm-store .pin-mark{width:40px;height:51px}
+.gm-store .pin-mark path{fill:var(--forest);stroke:var(--surface);stroke-width:2.5;transition:fill var(--dur-1)}
+.gm-store .pin-mark text{font:700 15px var(--font-body);fill:var(--honey)}
+.gm-store-label{display:grid;gap:2px;margin-top:2px;padding:7px 11px;border-radius:var(--r-xs);background:var(--forest);color:var(--on-dark);box-shadow:var(--sh-2);white-space:nowrap}
+.gm-store-label strong{font:700 .875rem/1.1 var(--font-body)}
+.gm-store-label span{font:600 .6875rem/1.2 var(--font-body);color:var(--honey)}
+.gm-pulse{position:absolute;left:20px;top:100%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:rgba(168,106,51,.45)}
+@media (prefers-reduced-motion:no-preference){ .gm-pulse{animation:gm-pulse 2.2s var(--ease) infinite} }
+@keyframes gm-pulse{0%{transform:scale(.6);opacity:1}100%{transform:scale(3.2);opacity:0}}
+.gm-store:hover .pin-mark,.gm-store:focus-visible .pin-mark{transform:translateY(-3px)}
+.gm-store:hover .pin-mark path,.gm-store:focus-visible .pin-mark path{fill:var(--brown)}
+.gm-store:focus-visible{outline:none}
+.gm-store:focus-visible .gm-store-label{outline:3px solid var(--honey);outline-offset:2px}
+.gm-scale{left:12px;top:12px;display:flex;align-items:center;gap:6px;font:600 .625rem/1 var(--font-body);color:var(--text-2)}
+.gm-scale-bar{display:block;width:var(--scale,7.53cqw);height:5px;border:1.5px solid var(--text-2);border-top:0}
+.gm-scale--bl{top:auto;bottom:10px;text-shadow:0 0 3px #EFE7DA,0 0 3px #EFE7DA}
+.gm-area--estate{color:var(--forest);opacity:1;font-size:clamp(.5625rem,.45rem + .4vw,.75rem)}
+/* Tintin map: shorter labels on narrow maps (container width, not viewport, since the map is narrower beside the card on desktop) */
+.gm-tmain{--x:38%;--y:45.5%}
+.gm-c-short{display:none}
+@container (max-width:599.98px){
+  .gm-tmain{--x:31%;--y:44%}
+  .gm-c-long{display:none} .gm-c-short{display:inline}
+}
+@container (max-width:309.98px){
+  .gm-store--tintin{flex-direction:column;gap:2px;transform:translate(-16px,-41px)}
+  .gm-store--tintin .gm-store-label{margin-top:8px}
+}
+.gm-credit{right:8px;bottom:6px;padding:2px 6px;border-radius:4px;background:rgba(255,253,249,.8);font:500 .625rem/1.3 var(--font-body);color:var(--muted-ink);text-decoration:none}
+.gm-credit:hover{text-decoration:underline}
+.gmap .sm-compass{right:12px;top:10px}
+@media (max-width:479.98px){
+  .gm-store{transform:translate(-16px,-100%);gap:4px}
+  .gm-store .pin-mark{width:32px;height:41px}
+  .gm-pulse{left:16px}
+  .gm-store-label{padding:5px 8px}
+  .gm-store-label strong{font-size:.75rem} .gm-store-label span{font-size:.5625rem}
+  .gm-poi-dot{width:18px;height:18px} .gm-poi-dot svg{width:10px;height:10px}
+  .gm-poi{transform:translate(-50%,-9px)}
+  .gm-poi--above{flex-direction:column;transform:translate(-50%,-9px)}
+  .gm-poi--m-above{flex-direction:column-reverse;transform:translate(-50%,calc(-100% + 9px))}
+  .gm-street--minor,.gm-area:not(.gm-area--estate){display:none}
+}
+@media (max-width:379.98px){ .gm-street--med{display:none} }
+@media (max-width:359.98px){ .gm-street--vi,.gm-poi-long{display:none} }
+
+.sm-compass{display:flex;flex-direction:column;align-items:center;gap:1px;font:700 .625rem/1 var(--font-body);color:var(--forest)}
+.sm-compass svg{width:16px;height:16px;fill:var(--forest)} .sm-compass-s{fill:var(--line-strong)}
+.pin-mark{flex:none;overflow:visible;filter:drop-shadow(0 4px 6px rgba(31,74,58,.3));transform-origin:50% 100%;transition:transform var(--dur-2) var(--ease)}
+
+/* Store details beside the map */
+.store-info{padding:22px 20px;border-radius:var(--r-md);background:var(--surface);box-shadow:var(--sh-1),inset 0 0 0 1px var(--line)}
+.store-area{font:700 var(--fs-eyebrow)/1.3 var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--brown-ink)}
+.store-name{margin-top:6px;font-size:var(--fs-h3);line-height:1.15;letter-spacing:-.015em}
+.store-addr{margin-top:8px;font-style:normal;color:var(--text-2);line-height:1.55;max-width:40ch}
+.store-h{margin-top:20px;font:700 var(--fs-eyebrow)/1.3 var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--forest)}
+.store-steps{list-style:none;margin-top:10px;display:grid;gap:10px;counter-reset:st}
+.store-steps li{position:relative;padding-left:30px;color:var(--text-2);line-height:1.5;counter-increment:st}
+.store-steps li::before{content:counter(st);position:absolute;left:0;top:1px;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--honey-tint);color:var(--brown-ink);font:700 .6875rem/1 var(--font-body)}
+.store-steps strong{color:var(--forest);font-weight:700}
+.store-actions{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px}
+.store-actions .btn{gap:8px}
+.store-actions .btn svg{width:18px;height:18px}
+@media (max-width:479.98px){ .store-actions .btn{flex:1 1 100%} }
+@media (min-width:1024px){
+  .store-tabs{max-width:620px;margin-bottom:20px}
+  .store-panel{grid-template-columns:1.45fr 1fr;gap:24px;align-items:center}
+  .gmap{border-radius:var(--r-lg)}
+  .store-info{padding:30px 28px}
+}
+@media (prefers-reduced-motion:reduce){ .pin-mark{transition:none} }
+
 /* ── 7 · Feeding Guide teaser ── */
 .teaser{padding-top:0;padding-bottom:clamp(56px,6vw,88px)}
 .teaser-panel{display:grid;gap:40px;background-color:var(--cream-deep);background-image:var(--grain);border-radius:var(--r-xl);padding:clamp(22px,5vw,64px)}
